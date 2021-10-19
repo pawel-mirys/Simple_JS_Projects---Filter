@@ -159,8 +159,8 @@ https://www.iconfinder.com/korawan_m
       <!--filter buttons -->
       <div class="row">
         <div class=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
-          <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
-            data-filter="all">all</a>
+          <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="all">
+            all</a>
           <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
             data-filter="cakes">cakes</a>
           <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
@@ -188,7 +188,7 @@ https://www.iconfinder.com/korawan_m
       </div>
       <!--end of filter buttons -->
       <!-- store  items-->
-      <div class="row" id="store-items">
+      <div class="row" class="store-items" id="store-items">
         <!-- single item -->
         <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets">
           <div class="card ">
@@ -344,7 +344,7 @@ https://www.iconfinder.com/korawan_m
         </div>
         <!--end of single store item-->
         <!-- single item -->
-        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item doughnuts" `-item="dougnuts">
+        <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item doughnuts" data-item="dougnuts">
           <div class="card ">
             <div class="img-container">
               <img src="img/doughnut-2.jpeg" class="card-img-top store-img" alt="">
@@ -459,13 +459,26 @@ https://www.iconfinder.com/korawan_m
   <!--end of store items -->
 
 
+  <!-- modal-container -->
+  <div class="container-fluid ">
+    <div class="row lightbox-container align-items-center">
+      <div class="col-10 col-md-10 mx-auto text-right lightbox-holder">
+        <span class="lightbox-close"><i class="fas fa-window-close"></i></span>
+        <div class="lightbox-item"></div>
+        <span class="lightbox-control btnLeft"><i id="left" class="fas fa-caret-left"></i></span>
+        <span class="lightbox-control btnRight"><i id="right" class="fas fa-caret-right"></i></span>
+      </div>
+
+    </div>
+  </div>
+
 
   <!-- jquery -->
-  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="./js/jquery-3.3.1.min.js"></script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
   <!-- script js -->
-  <script src="js/app.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 
 </html>
