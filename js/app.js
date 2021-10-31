@@ -1,9 +1,9 @@
 // Filter Project Selectors
-const cards = document.querySelectorAll('.store-item');
+const cards = document.querySelectorAll('.card');
 const btns = document.querySelectorAll('.filter-btn');
 const searchBar = document.querySelector('#search-item');
 // Modal Project Selectors
-let arr = [];
+let imageArray = [];
 let initIndex = 0;
 const images = document.querySelectorAll('.store-img');
 const lightBox = document.querySelector('.lightbox-container');
@@ -13,9 +13,9 @@ const controls = document.querySelectorAll('.lightbox-control');
 
 // Filter Project
 btns.forEach((button) => {
-  button.addEventListener('click', (el) => {
-    el.preventDefault();
-    const mainFilter = el.target.dataset.filter;
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    const mainFilter = e.target.dataset.filter;
     console.log(mainFilter);
     cards.forEach((card) => {
       if (mainFilter === 'all') {
@@ -45,25 +45,29 @@ searchBar.addEventListener('input', (e) => {
 // Modal Project
 
 images.forEach((img) => {
-  arr.push(img.src);
+  imageArray.push(img.src);
 });
-console.log(arr);
+console.log(imageArray);
 
 cards.forEach((card) => {
   card.addEventListener('click', (e) => {
-    let img = e.target.src;
-    initIndex = arr.indexOf(img);
-    lightBoxItem.style.backgroundImage = `url(${img})`;
-    lightBox.classList.add('show');
-    console.log(img);
-    console.log(initIndex);
+    console.log(e.target.classList);
+    if (e.target.classList.contains('store-img')) {
+      let img = e.target.src;
+      initIndex = imageArray.indexOf(img);
+      lightBoxItem.style.backgroundImage = `url(${img})`;
+      lightBox.classList.add('show');
+      console.log(e.target.classList);
+      console.log(img);
+      console.log(initIndex);
+    }
   });
 });
 
 closeBtn.addEventListener('click', () => {
   lightBox.classList.contains('show')
     ? lightBox.classList.remove('show')
-    : undefined;
+    : null;
 });
 
 controls.forEach((control) => {
@@ -71,13 +75,13 @@ controls.forEach((control) => {
     let id = e.target.id;
     console.log(id);
     id === 'right' ? initIndex++ : initIndex--;
-    if (initIndex >= arr.length) {
+    if (initIndex >= imageArray.length) {
       initIndex = 0;
     } else if (initIndex < 0) {
-      initIndex = arr.length - 1;
+      initIndex = imageArray.length - 1;
     }
-    lightBoxItem.style.backgroundImage = `url(${arr[initIndex]})`;
+    lightBoxItem.style.backgroundImage = `url(${imageArray[initIndex]})`;
     console.log(initIndex);
-    console.log(arr[initIndex]);
+    console.log(imageArray[initIndex]);
   });
 });
